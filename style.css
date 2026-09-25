@@ -1,0 +1,1140 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #fffaff,
+            #ffdcea 50%,
+            #f5b9d2
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   FUNDAL
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+
+    bottom: -120px;
+
+    font-size: 65px;
+
+    opacity: .85;
+
+    animation: balloonFloat 12s linear infinite;
+}
+
+.b1 {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.b2 {
+    left: 20%;
+    animation-delay: 3s;
+}
+
+.b3 {
+    left: 35%;
+    animation-delay: 6s;
+}
+
+.b4 {
+    left: 55%;
+    animation-delay: 2s;
+}
+
+.b5 {
+    left: 75%;
+    animation-delay: 5s;
+}
+
+.b6 {
+    left: 90%;
+    animation-delay: 8s;
+}
+
+
+@keyframes balloonFloat {
+
+    0% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-60vh) rotate(8deg);
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(-5deg);
+    }
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(760px, 94vw);
+
+    padding: 30px 20px 35px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.72);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 25px 60px rgba(120,50,90,.2);
+}
+
+
+h1 {
+    color: #b73c70;
+
+    margin-top: 0;
+}
+
+
+/* =========================
+   SCENA
+========================= */
+
+.scene {
+    position: relative;
+
+    width: 430px;
+    height: 400px;
+
+    max-width: 100%;
+
+    margin: 10px auto;
+}
+
+
+/* UMBRA */
+
+.floor-shadow {
+    position: absolute;
+
+    width: 280px;
+    height: 35px;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(80,40,60,.2);
+
+    filter: blur(10px);
+
+    z-index: 2;
+}
+
+
+/* =========================
+   CUTIA
+========================= */
+
+.gift {
+    position: absolute;
+
+    width: 270px;
+    height: 220px;
+
+    left: 50%;
+    bottom: 35px;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+}
+
+
+/* INTERIOR */
+
+.inside {
+    position: absolute;
+
+    width: 225px;
+    height: 115px;
+
+    left: 22px;
+    top: 35px;
+
+    border-radius: 8px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #4b2436,
+            #261522
+        );
+
+    box-shadow:
+        inset 0 10px 25px rgba(0,0,0,.6);
+
+    z-index: 1;
+}
+
+
+/* CORPUL CUTIEI */
+
+.box {
+    position: absolute;
+
+    width: 250px;
+    height: 165px;
+
+    left: 10px;
+    top: 55px;
+
+    border-radius: 5px 5px 12px 12px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ed709d,
+            #d43e76
+        );
+
+    box-shadow:
+        0 12px 20px rgba(110,30,65,.25),
+
+        inset 0 4px 8px rgba(255,255,255,.2),
+
+        inset 0 -12px 20px rgba(110,20,55,.15);
+
+    z-index: 5;
+}
+
+
+/* FAȚA CUTIEI */
+
+.box-front {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.12),
+            transparent 35%,
+            rgba(120,20,60,.12)
+        );
+}
+
+
+/* PANGICĂ VERTICALĂ */
+
+.ribbon-vertical {
+    position: absolute;
+
+    width: 42px;
+    height: 165px;
+
+    left: 104px;
+    top: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f4b7ce,
+            #fff0f6,
+            #e49ab9
+        );
+
+    box-shadow:
+        0 0 7px rgba(255,255,255,.5);
+
+    z-index: 7;
+}
+
+
+/* PANGICĂ ORIZONTALĂ */
+
+.ribbon-horizontal {
+    position: absolute;
+
+    width: 250px;
+    height: 40px;
+
+    left: 0;
+    top: 72px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7c5d8,
+            #fff2f7,
+            #dfa0bc
+        );
+
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,.5);
+
+    z-index: 8;
+}
+
+
+/* =========================
+   CAPAC
+========================= */
+
+.lid {
+    position: absolute;
+
+    width: 280px;
+    height: 58px;
+
+    left: -5px;
+    top: 18px;
+
+    transform-origin: center bottom;
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1);
+
+    z-index: 15;
+}
+
+
+/* CAPACUL */
+
+.lid-main {
+    position: absolute;
+
+    width: 280px;
+    height: 58px;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f47aa5,
+            #d94477
+        );
+
+    box-shadow:
+        0 7px 12px rgba(100,20,55,.25),
+
+        inset 0 4px 8px rgba(255,255,255,.25);
+}
+
+
+/* PANGICĂ PE CAPAC */
+
+.lid-ribbon {
+    position: absolute;
+
+    width: 42px;
+    height: 58px;
+
+    left: 119px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e6a0bc,
+            #fff1f7,
+            #e2a0ba
+        );
+
+    z-index: 3;
+}
+
+
+/* DESCHIDERE */
+
+.gift.open .lid {
+    transform:
+        translateY(-90px)
+        rotate(-5deg);
+}
+.gift.open.bow{
+    transform: 
+    translateX(-50%)
+    translateY(-90%)
+    rotate(-5deg);
+}
+
+/* =========================
+   FUNDĂ
+========================= */
+
+.bow {
+    position: absolute;
+
+    width: 110px;
+    height: 65px;
+
+    left: 50%;
+    top: -22px;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+    transition: 
+        transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+
+.bow-left,
+.bow-right {
+    position: absolute;
+
+    width: 60px;
+    height: 42px;
+
+    top: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6c4d8,
+            #d66c98
+        );
+
+    box-shadow:
+        0 4px 7px rgba(120,30,70,.2);
+}
+
+
+.bow-left {
+    left: 0;
+
+    border-radius:
+        70% 25% 70% 25%;
+
+    transform: rotate(20deg);
+}
+
+
+.bow-right {
+    right: 0;
+
+    border-radius:
+        25% 70% 25% 70%;
+
+    transform: rotate(-20deg);
+}
+
+
+.bow-center {
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    left: 39px;
+    top: 20px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffeaf3,
+            #d45e8c
+        );
+
+    box-shadow:
+        0 3px 6px rgba(100,20,60,.2);
+
+    z-index: 5;
+}
+
+
+/* =========================
+   URSULEȚ
+========================= */
+
+.bear {
+    position: absolute;
+
+    width: 175px;
+    height: 225px;
+
+    left: 50%;
+    bottom: 105px;
+
+    transform:
+        translateX(-50%)
+        translateY(160px)
+        scale(.7);
+
+    opacity: 0;
+
+    z-index: 30;
+
+    transition:
+        opacity .5s ease,
+        transform 1.3s cubic-bezier(.2,.8,.2,1);
+}
+
+
+.bear.show {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(-20px)
+        scale(1);
+
+    animation:
+        bearBounce 1.3s 1.2s ease-in-out;
+}
+
+
+@keyframes bearBounce {
+
+    0%, 100% {
+        transform:
+            translateX(-50%)
+            translateY(-20px)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-34px)
+            scale(1.02);
+    }
+}
+
+
+/* URECHI */
+
+.ear {
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    top: 5px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #e8a879 25%,
+            #a95e43 27%
+        );
+
+    z-index: 3;
+}
+
+
+.left-ear {
+    left: 8px;
+}
+
+
+.right-ear {
+    right: 8px;
+}
+
+
+/* CAP */
+
+.head {
+    position: absolute;
+
+    width: 130px;
+    height: 115px;
+
+    left: 22px;
+    top: 25px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #f3c49a,
+            #c47a51 70%
+        );
+
+    box-shadow:
+        inset -10px -10px 15px rgba(100,40,20,.15);
+
+    z-index: 4;
+}
+
+
+/* OCHI */
+
+.eye {
+    position: absolute;
+
+    width: 10px;
+    height: 13px;
+
+    top: 43px;
+
+    border-radius: 50%;
+
+    background: #30201d;
+}
+
+
+.eye-left {
+    left: 38px;
+}
+
+
+.eye-right {
+    right: 38px;
+}
+
+
+/* BOT */
+
+.muzzle {
+    position: absolute;
+
+    width: 62px;
+    height: 48px;
+
+    left: 34px;
+    top: 60px;
+
+    border-radius: 50%;
+
+    background: #edbf91;
+}
+
+
+.nose {
+    position: absolute;
+
+    width: 19px;
+    height: 14px;
+
+    left: 21px;
+    top: 8px;
+
+    border-radius: 50%;
+
+    background: #3b2520;
+}
+
+
+.mouth {
+    position: absolute;
+
+    width: 20px;
+    height: 12px;
+
+    left: 21px;
+    top: 20px;
+
+    border-bottom:
+        3px solid #4b2924;
+
+    border-radius:
+        0 0 50% 50%;
+}
+
+
+/* CORP */
+
+.body {
+    position: absolute;
+
+    width: 130px;
+    height: 125px;
+
+    left: 22px;
+    top: 118px;
+
+    border-radius:
+        48% 48% 40% 40%;
+
+    background:
+        radial-gradient(
+            circle at 35% 20%,
+            #e7ad7b,
+            #ae6848 75%
+        );
+
+    z-index: 2;
+}
+
+
+/* PICIORUL STÂNG */
+
+.body::before {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 72px;
+
+    left: -8px;
+    bottom: -35px;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #efbd8d,
+            #b96d4b 75%
+        );
+
+    box-shadow:
+        inset -5px -6px 10px rgba(100,40,20,.12);
+}
+
+
+/* PICIORUL DREPT */
+
+.body::after {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 72px;
+
+    right: -8px;
+    bottom: -35px;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #efbd8d,
+            #b96d4b 75%
+        );
+
+    box-shadow:
+        inset -5px -6px 10px rgba(100,40,20,.12);
+}
+
+/* =========================
+   TORT
+========================= */
+
+.cake {
+    position: absolute;
+
+    width: 95px;
+    height: 65px;
+
+    left: 40px;
+    top: 122px;
+
+    z-index: 50;
+}
+
+
+/* BLATUL DE SUS */
+
+.cake-top {
+    position: absolute;
+
+    width: 95px;
+    height: 25px;
+
+    top: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at 40% 35%,
+            #fff5fa,
+            #f5a9c5 70%
+        );
+
+    z-index: 3;
+}
+
+
+/* CORP TORT */
+
+.cake-body {
+    position: absolute;
+
+    width: 95px;
+    height: 42px;
+
+    top: 12px;
+
+    border-radius:
+        8px 8px 15px 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ef8eaf,
+            #d75b88
+        );
+}
+
+
+/* CREMĂ */
+
+.cream {
+    position: absolute;
+
+    width: 25px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #fff5f8;
+}
+
+
+.cream1 {
+    left: 10px;
+    top: 8px;
+}
+
+
+.cream2 {
+    left: 35px;
+    top: 15px;
+}
+
+
+.cream3 {
+    right: 8px;
+    top: 8px;
+}
+
+
+/* LUMÂNĂRI */
+
+.candle {
+    position: absolute;
+
+    width: 9px;
+    height: 27px;
+
+    top: -22px;
+
+    border-radius: 3px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #fff,
+            #fff 4px,
+            #ef6f9c 4px,
+            #ef6f9c 7px
+        );
+
+    z-index: 60;
+}
+
+
+.candle1 {
+    left: 20px;
+}
+
+
+.candle2 {
+    left: 43px;
+}
+
+
+.candle3 {
+    right: 20px;
+}
+
+
+/* FLĂCĂRI */
+
+.flame {
+    position: absolute;
+
+    width: 12px;
+    height: 17px;
+
+    left: -2px;
+    top: -15px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fff7a0,
+            #ff9f43 55%,
+            #ff6a00
+        );
+
+    animation:
+        flame .55s infinite alternate;
+
+    box-shadow:
+        0 0 12px rgba(255,160,50,.7);
+}
+
+
+@keyframes flame {
+
+    from {
+        transform:
+            scale(.85)
+            rotate(-3deg);
+    }
+
+    to {
+        transform:
+            scale(1.1)
+            rotate(3deg);
+    }
+}
+
+
+/* BRAȚE */
+
+.arm {
+    position: absolute;
+
+    width: 60px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d89568,
+            #a95f43
+        );
+
+    z-index: 55;
+}
+
+
+.arm-left {
+    left: 12px;
+    top: 135px;
+
+    transform: rotate(25deg);
+}
+
+
+.arm-right {
+    right: 12px;
+    top: 135px;
+
+    transform: rotate(-25deg);
+}
+
+
+/* =========================
+   MESAJ
+========================= */
+
+.message {
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        all 1s ease;
+}
+
+
+.message.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.sparkles {
+    font-size: 28px;
+}
+
+
+.message h2 {
+    color: #b7356c;
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+
+.message p {
+    color: #6d4355;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+.hearts {
+    font-size: 25px;
+}
+
+
+/* =========================
+   BUTON
+========================= */
+
+button {
+    border: none;
+
+    padding: 15px 28px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e85d91,
+            #c93d72
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(190,50,100,.25);
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+
+button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(190,50,100,.35);
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+
+    z-index: 100;
+
+    font-size: 22px;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall 1.8s ease-out forwards;
+}
+
+
+@keyframes confettiFall {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(0, 0)
+            scale(1)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(var(--x), var(--y))
+            scale(.5)
+            rotate(500deg);
+    }
+}
+
+
+/* =========================
+   TELEFON
+========================= */
+
+@media (max-width: 500px) {
+
+    .scene {
+        transform: scale(.82);
+
+        transform-origin:
+            center top;
+
+        height: 340px;
+    }
+
+
+    .card {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    h1 {
+        font-size: 24px;
+    }
+}
